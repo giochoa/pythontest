@@ -1,0 +1,3 @@
+Debugging = using the pdb module inside the function will help us look inside the function as it happens, Its usually the set_trace that is use.
+Its like the same as the debugger in JS but much more jacked up.
+:)
