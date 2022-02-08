@@ -6,15 +6,15 @@ app = Flask(__name__)
 def my_home():
     return render_template("index.html")
 
-@app.route("/about.html")
-def about():
-    return render_template("about.html")    
+@app.route("/<string:pagename>")
+def html_page(pagename):
+    return render_template(pagename)    
 
-@app.route("/blog")
-def blog():
-    return "<h1>This is for the blogs</h1>"
+# @app.route("/works.html")
+# def work():
+#     return render_template('works.html')
 
-@app.route("/blog/2022/dogs")
-def blog2():
-    return "<h1>Snoop Doug</h1>"   
+# @app.route("/blog/2022/dogs")
+# def blog2():
+#     return "<h1>Snoop Doug</h1>"   
 
