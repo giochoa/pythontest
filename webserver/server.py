@@ -19,11 +19,11 @@ def write_file(data):
         file = database.write(f'\n{email},{subject},{message}')        
 
 def write_csv(data):
-    with open('database.csv', mode='a', ) as database2:
+    with open('database.csv',newline='', mode='a', ) as database2:
         email = data['email']
         subject = data['subject']
         message = data['message']
-        csv_writer = csv.writer(database2, delimiter=',', quotechar='"',newline='', quoting=csv.QUOTE_MINIMAL)
+        csv_writer = csv.writer(database2, delimiter=',', quotechar='"',quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([email, subject, message])
 
 @app.route("/submit_form", methods=['POST', 'GET'])
@@ -35,7 +35,7 @@ def submit_form():
             write_csv(data)
             return redirect('./thankyou.html')
         except:
-            return 'cant save to DB'
+            return 'cant write to db'   
     else:
         return 'error'    
 
